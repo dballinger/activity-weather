@@ -3,14 +3,18 @@ package com.github.dballinger.activityweather;
 import java.util.Objects;
 
 public class Semicircle {
-    private long semicircles;
+    private long value;
 
     public Semicircle(long semicircles) {
-        this.semicircles = semicircles;
+        this.value = semicircles;
     }
 
     public DecimalDegree toDegrees() {
-        return new DecimalDegree(semicircles * 180 / Math.pow(2, 31));
+        return new DecimalDegree(value * 180 / Math.pow(2, 31));
+    }
+
+    public long getValue() {
+        return value;
     }
 
     @Override
@@ -18,11 +22,16 @@ public class Semicircle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Semicircle that = (Semicircle) o;
-        return semicircles == that.semicircles;
+        return value == that.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(semicircles);
+        return Objects.hash(value);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
 }

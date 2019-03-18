@@ -10,7 +10,7 @@ public class DecimalDegree {
     }
 
     public Semicircle toSemicircle() {
-        return new Semicircle(Math.round(degrees * Math.pow(2, 31) / 180));
+        return new Semicircle((int) Math.round(degrees * Math.pow(2, 31) / 180));
     }
 
     @Override
@@ -24,5 +24,10 @@ public class DecimalDegree {
     @Override
     public int hashCode() {
         return Objects.hash(degrees);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(degrees);
     }
 }
